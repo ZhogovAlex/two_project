@@ -55,6 +55,9 @@ public class FirstTest extends WebDriverSetings{
         vocationField.sendKeys("Acquisition Logistics Analyst");
         WebElement subscribeAcc = driver.findElement(By.xpath("//button[@type='submit']"));
         subscribeAcc.click();
+      WebElement subscribleText = driver.findElement(
+      WebElement deleteButton = driver.findElement(By.xpath("//span[@data-gatrackname='unsubscribeAccInSubscriptionsDelete']"));
+        deleteButton.click();
     }
 
     @Test
@@ -69,8 +72,7 @@ public class FirstTest extends WebDriverSetings{
         LoginButton.click();
         WebElement searchBtn = driver.findElement(By.xpath("//button[@class='search-btn']"));
         searchBtn.click();
-        WebElement subscribleBtn = driver.findElement(By.xpath("//button[@class='btn btn-blue-shd rippled']"));
-        subscribleBtn.click();
+        WebElement subscribleBtn = driver.findElement(By.className("btn btn-blue-shd rippled"));
 
 
     }
