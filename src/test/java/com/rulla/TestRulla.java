@@ -60,22 +60,22 @@ public class TestRulla extends WebDriverSetings {
             deleteButton.click();
         }
 
-     //   @Test
+        @Test
 
-    //    public void subrscrible1click() {
-    //        driver.get("https://ca.rulla.com/account/login.html");
-    //        WebElement Loginfield = driver.findElement(By.id("LoginForm_email"));
-    //        Loginfield.sendKeys("zhogov@trud.com");
-    //        WebElement Password = driver.findElement(By.id("LoginForm_password"));
-    //        Password.sendKeys("awdasd");
-     //       WebElement LoginButton = driver.findElement(By.xpath("//button[1]"));
-     //       LoginButton.click();
-    //        WebElement searchBtn = driver.findElement(By.xpath("//button[@class='search-btn']"));
-    //        searchBtn.click();
-    //        WebElement subButton1 = driver.findElement(By.xpath("//button[@class='button.btn.btn-blue-shd.rippled'"));
+        public void subrscrible1click() {
+            driver.get("https://ca.rulla.com/account/login.html");
+            WebElement Loginfield = driver.findElement(By.id("LoginForm_email"));
+            Loginfield.sendKeys("zhogov@trud.com");
+            WebElement Password = driver.findElement(By.id("LoginForm_password"));
+            Password.sendKeys("awdasd");
+            WebElement LoginButton = driver.findElement(By.xpath("//button[1]"));
+            LoginButton.click();
+            WebElement searchBtn = driver.findElement(By.xpath("//button[@class='search-btn']"));
+            searchBtn.click();
+            WebElement subButton1 = driver.findElement(By.xpath("//button[@class='btn btn-blue-shd rippled']"));
+            subButton1.click();
 
-
-    //    }
+        }
 
     @Test
     public void findingflags(){
@@ -108,20 +108,20 @@ public class TestRulla extends WebDriverSetings {
 
     @Test
     public void linkbyCa() {
-            driver.get("https://ca.rulla.com/");
+        driver.get("https://rulla.com/");
+        WebElement flagCa = driver.findElement(By.xpath("//a[@title='Canada']"));
+        flagCa.click();
+        WebElement categoriLink = driver.findElement(By.xpath("//div[text()=' Job search by Categories ']"));
+        WebElement cityLink = driver.findElement(By.xpath("//div[text()=' Jobs by Cities ']"));
+        WebElement companyLink  = driver.findElement(By.xpath("//div[text()=' Jobs by Companies ']"));
+        WebElement listingCat = driver.findElement(By.xpath("//span[@class='next nxt-regions']"));
+        listingCat.click();
+        WebElement klickCategori = driver.findElement(By.linkText("Sales"));
+        klickCategori.click();
 
 
 
-
-    }
-
-
-
-
-
-
-
-
+         }
 
     }
 

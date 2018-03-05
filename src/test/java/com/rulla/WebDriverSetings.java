@@ -19,10 +19,10 @@ public class WebDriverSetings {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
-    @After
+   @After
 
-    public void close() {
-        driver.quit();
+   public void close() {
+       driver.quit();
     }
 
 }
