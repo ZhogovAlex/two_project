@@ -1,5 +1,6 @@
 package com.rulla;
 
+import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -18,10 +19,9 @@ public class WebDriverSetings {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
-    //@After
+    @After
 
-
-   // public void close() {
-    //    driver.quit();
-   // }
+    public void close() {
+        driver.quit();
+    }
 }
