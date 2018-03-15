@@ -1,4 +1,4 @@
-package com.rulla;
+package com.rulla.tests;
 
 import org.junit.After;
 import org.junit.Before;
@@ -22,6 +22,8 @@ public class WebDriverSetings {
     @After
 
     public void close() {
-        driver.quit();
+    driver.quit();
     }
+
 }
+
