@@ -7,6 +7,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 public class TestRulla extends WebDriverSetings {
 
 
@@ -89,7 +94,7 @@ public class TestRulla extends WebDriverSetings {
 
         @Test
 
-        public void subrscrible1click () {
+        public void subrscribleOneclick () {
         driver.get("https://ca.rulla.com/account/login.html");
         WebElement Loginfield = driver.findElement(By.id("LoginForm_email"));
         Loginfield.sendKeys("zhogov@trud.com");
@@ -160,12 +165,55 @@ public class TestRulla extends WebDriverSetings {
         WebElement linkTermsUse = driver.findElement(By.xpath("//a[@href='/info/terms.html']"));
         WebElement linkPrivatPolicy = driver.findElement(By.xpath("//a[@href='/info/privacy.html']"));
         WebElement recentSerch = driver.findElement(By.xpath("//div[@class='title-i']"));
-
         WebElement buttonSerch = driver.findElement(By.className("search-btn"));
         buttonSerch.click();
 
 
     }
+
+    @Test
+
+    public void checkJobsCanadaTest() {
+            driver.get("https://ca.rulla.com/");
+            WebElement serchbutton = driver.findElement(By.className("search-btn"));
+            serchbutton.click();
+            WebElement filtrPeriod = driver.findElement(By.xpath("//span[text()='Search period']"));
+            WebElement filtrSalary = driver.findElement(By.xpath("//span[text()='Salary']"));
+            WebElement filtrTypeJob = driver.findElement(By.xpath("//span[text()='Type of job ']"));
+            WebElement subForm = driver.findElement(By.xpath("//button[@class='btn btn-blue-shd rippled']"));
+            WebElement logoRulla = driver.findElement(By.className("logo"));
+            WebElement jobLinck = driver.findElement(By.xpath("//a[@href='/jobs']"));
+            WebElement formRegistration = driver.findElement(By.xpath("//a[@href='/account/register_user.html']"));
+            WebElement formLoginUser = driver.findElement(By.xpath("//a[@href='/account/login.html']"));
+            WebElement blockLinkCat = driver.findElement(By.xpath("//div[text()=' Categories: ']"));
+            WebElement blockLinkProvinc = driver.findElement(By.xpath("//div[text()=' Provinces ']"));
+            WebElement blockLinkCities = driver.findElement(By.xpath("//div[text()=' Central cities ']"));
+            WebElement blockLincCompany = driver.findElement(By.xpath("//div[text()=' Companies - employers: ']"));
+
+
+    }
+    @Test
+    public void registrationTest() throws  Exception {
+            driver.get("https://it.rulla.com/account/register_user.html");
+        DateFormat df = new SimpleDateFormat("ddMMyyyyHHmmss");
+        Date today = Calendar.getInstance().getTime();
+        String todayDate = df.format(today);
+        String newmail = "zhogovtest+"+todayDate+"@gmail.com";
+            WebElement loginButton = driver.findElement(By.id("LoginForm_email"));
+            loginButton.sendKeys(newmail);
+            WebElement firstPassword = driver.findElement(By.id("LoginForm_password"));
+            firstPassword.sendKeys("awdasd");
+            WebElement repeatPassword = driver.findElement(By.id("LoginForm_password_repeat"));
+            repeatPassword.sendKeys("awdasd");
+            WebElement regButton = driver.findElement(By.xpath( "//button[@class='btn btn-blue btn-md rippled']"));
+           regButton.click();
+           WebElement massage = driver.findElement(By.className("info-window"));
+
+    }
+
+
+
+
 
     }
 
