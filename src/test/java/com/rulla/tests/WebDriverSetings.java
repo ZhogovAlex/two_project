@@ -1,14 +1,16 @@
 package com.rulla.tests;
 
-import org.junit.After;
 import org.junit.Before;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.concurrent.TimeUnit;
 
 public class WebDriverSetings {
 
     public ChromeDriver driver;
+    private Select select;
 
     @Before
 
@@ -19,11 +21,16 @@ public class WebDriverSetings {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
-    @After
-
-    public void close() {
-    driver.quit();
+    public Select getSelect(WebElement element) {
+        select = new Select(element);
+        return select;
     }
+
+  //  @After
+
+   // public void close() {
+  //  driver.quit();
+   // }
 
 }
 

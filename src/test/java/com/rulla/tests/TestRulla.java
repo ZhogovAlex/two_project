@@ -7,10 +7,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Properties;
 
 public class TestRulla extends WebDriverSetings {
 
@@ -63,6 +66,11 @@ public class TestRulla extends WebDriverSetings {
         WebElement ProfilUser = driver.findElement(By.xpath("//p"));
         String mailUser = ProfilUser.getText();
         Assert.assertEquals("E-Mail: zhogov@trud.com", mailUser);
+        WebElement dropDown = driver.findElement(By.xpath("//span[@class='ico ico-user']"));
+        dropDown.click();
+        WebElement logButton = driver.findElement(By.xpath("//a[@href='/users/logout.html']"));
+        logButton.click();
+        WebElement logo = driver.findElement(By.xpath("//img[@class='logo']"));
 
     }
 
@@ -209,13 +217,61 @@ public class TestRulla extends WebDriverSetings {
            regButton.click();
            WebElement massage = driver.findElement(By.className("info-window"));
 
+
+        Properties props = new Properties();
+
+        props.put("mail.pop3.host", "pop.gmail.com");
+        props.put("mail.pop3.port", "995");
+        props.put("mail.pop3.user", "zhogovtest@gmail.com");
+        props.put("mail.store.protocol", "pop3s");
+        props.put("mail.pop3.socketFactory.class", javax.net.ssl.SSLServerSocketFactory.class);
+
+        Session session  = Session.getInstance(props,
+                new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication("zhogovtest@gmail.com", "050487CfIf");
+                 }
+             });
+
+          }
+
+    @Test
+
+    public void userCabinet() {
+        driver.get("https://ca.rulla.com/account/login.html");
+        WebElement Loginfield = driver.findElement(By.id("LoginForm_email"));
+        Loginfield.sendKeys("zhogov@trud.com");
+        WebElement Password = driver.findElement(By.id("LoginForm_password"));
+        Password.sendKeys("awdasd");
+        WebElement LoginButton = driver.findElement(By.xpath("//button[1]"));
+        LoginButton.click();
+        WebElement selectbutton = driver.findElement(By.xpath("//a[@class='active']"));
+        WebElement buttonJobs = driver.findElement(By.xpath("//a[@href='/office/favorite/show/jobs/type/favorite.html']"));
+        WebElement selectMenu = driver.findElement(By.xpath("//div[@class='option-item']"));
+        WebElement deleteButt = driver.findElement(By.xpath("//a[@href='/office/favorite/show/jobs/clear/1.html']"));
+        WebElement historybutton = driver.findElement(By.xpath("//a[2]"));
+        historybutton.click();
+        WebElement subscription = driver.findElement(By.xpath("//a[3]"));
+        selectbutton.click();
+        WebElement mainTitle = driver.findElement(By.xpath("//div[@class='main-title']"));
+        Assert.assertEquals("My subscriptions to zhogov@trud.com", "My subscriptions to zhogov@trud.com");
+        WebElement settingsBut = driver.findElement(By.xpath("//a[4]"));
+        settingsBut.click();
+
+
+
+
+
+
     }
 
 
 
 
+        }
 
-    }
+
+
 
 
 
