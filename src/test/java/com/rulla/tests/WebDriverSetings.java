@@ -26,11 +26,11 @@ public class WebDriverSetings {
         return select;
     }
 
-  //  @After
+   // @After
 
    // public void close() {
-  //  driver.quit();
-   // }
+    //driver.quit();
+    //}
 
 }
 
